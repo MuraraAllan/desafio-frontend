@@ -1,0 +1,79 @@
+     Fornecer um mecanismo para o usuário poder pesquisar vídeos
+     
+    Possuir home page que exiba algum conteúdo interessante para uma plataforma de vídeos
+    HomePage
+
+
+function HomePage()  {
+   
+
+}
+
+
+
+    
+     <FeaturedPage />
+         
+    
+    Fornecer uma estrutura de gerência do estado da aplicação
+    zustand + context
+    
+    
+    <VideoList={videos}>
+    Is a paginated list with results of videoSearchs 
+    
+    Routes could 
+
+    /
+    /auth/oauth2
+    /auth/
+
+
+     
+    Molecules	   
+     Featured - if no user user search, display 4 results of "cute cats and dogs playing"  from youtube;
+     display last searched therm first 3 results; 
+     
+     More videos - if no user search, display 16 results of "cute cats and dogs playing" 
+     
+     16 results, paginated from 3, on groups of 8
+     
+     
+   
+
+             
+   UMIghtLike - does list 
+      
+    
+    MoreVIdeos - if no user, should display hot videos on youtube;
+    if user, should display random videos from channels with user favorite search topics 
+    
+    
+    //useSearch
+    // able to search youtube api for content
+    // able to retrieve user searchs stored locally
+    // able to get search results, ?paginated
+    Possuir histórico das buscas realizadas (persistir localmente)
+
+Requisitos extras
+
+    useAuth
+    user = null | userObject 
+    user.featuredContentPreferences = last 2 watched + last 1 searched or last 3 searched
+    
+    Permitir cadastro de usuário / login através da API do YouTube + OAuth2
+    
+    
+    
+    useMediaUploader
+    // able to upload videos 
+    // able to limit to only supported formats on youtube API
+    // able to display error when not completed, in a suspended mode
+    // able to display progress in a suspended mode 
+    Permitir upload de vídeo para a API do YouTube
+
+
+
+
+
+
