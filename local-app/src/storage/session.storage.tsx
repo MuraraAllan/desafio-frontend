@@ -1,23 +1,30 @@
-import create, { SetState } from 'zustand'
+import create from 'zustand'
 import createContext from 'zustand/context'
 
 // inmemory 
 // store userInfo
 // store searchTerm ( searchTerm used by fetch and shared across application through Context)
 
-const { Provider, useStore } = createContext();
 // const randomInterestingTerms = ["cats and dogs playing cute compilation", "remix by michael jackson react", "rhinos drinking water"]
 // const randomGenerator = Math.floor((Math.random() * 1) + (Math.random() * 1) + (Math.random() * 1))
 
+type SessionState = {
+  searchTerm: string,
+}
+
+const { Provider : SessionStoreProvider , useStore: useSessionStore } = createContext<SessionState>();
+
 const createSessionStore = () =>
-  create((set: SetState<{ searchTerm: String}>) => ({
+  create<SessionState>((set) => ({
     // user
-    searchTerm: '',
-    setSearchTerm: (searchTerm: String) => set({ searchTerm })
+    searchTerm: '', // decoupled 
+    gCloudApiKEY: 'AIzaSyBZ--nEkyorU89iKVYDLTbEb8zZTLi7PyM',
+    setSearchTerm: (searchTerm: string) => set(() => ({ searchTerm }))
   }));
 
-  export default {
-    SessionStoreProvider : Provider,
+
+  export { 
+    SessionStoreProvider,
     createSessionStore,
-    useSessionStore: useStore
+    useSessionStore
   }

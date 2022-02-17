@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-function App() {
+import { HomePage, ChannelsPage } from './pages'
+import { createSessionStore, getPersistedSearchHistory, pushPersistedSearchHistory, SessionStoreProvider } from './storage';
+import { NavBar } from './components/NavBar';
+
+const queryClient = new QueryClient()
+
+function App() { 
+  useEffect(() => {
+    pushPersistedSearchHistory('lfasdlfsalfdsa')
+    console.log('púsh search', getPersistedSearchHistory())
+  }, [])
+  
+  // const isFetching = useIsFetching
+  // useEffect(() => pushSearchHistory("heybuddy"), [])
+  // console.log('hey dear', getSearchHistory())
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SessionStoreProvider createStore={createSessionStore}>
+        <NavBar />
+        <QueryClientProvider client={queryClient}>
+          <Routes>
+              <Route index element={<HomePage />} />
+              <Route path="/channels" element={<ChannelsPage />} />
+          </Routes>
+        </QueryClientProvider>
+      </SessionStoreProvider>
     </div>
   );
 }
