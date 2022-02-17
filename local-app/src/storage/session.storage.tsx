@@ -10,6 +10,7 @@ import createContext from 'zustand/context'
 
 type SessionState = {
   searchTerm: string,
+  setSearchTerm: (searchTerm: string) => void
 }
 
 const { Provider : SessionStoreProvider , useStore: useSessionStore } = createContext<SessionState>();
@@ -18,7 +19,6 @@ const createSessionStore = () =>
   create<SessionState>((set) => ({
     // user
     searchTerm: '', // decoupled 
-    gCloudApiKEY: 'AIzaSyBZ--nEkyorU89iKVYDLTbEb8zZTLi7PyM',
     setSearchTerm: (searchTerm: string) => set(() => ({ searchTerm }))
   }));
 

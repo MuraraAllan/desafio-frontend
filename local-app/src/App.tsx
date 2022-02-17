@@ -21,8 +21,8 @@ function App() {
   return (
     <div className="App">
       <SessionStoreProvider createStore={createSessionStore}>
-        <NavBar />
         <QueryClientProvider client={queryClient}>
+          <NavBar />
           <Routes>
               <Route index element={<HomePage />} />
               <Route path="/channels" element={<ChannelsPage />} />
