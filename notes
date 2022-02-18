@@ -1,0 +1,228 @@
+styledComponents  & Design SYstem
+
+Thumbnail
+
+
+     Fornecer um mecanismo para o usuário poder pesquisar vídeos
+     
+    Possuir home page que exiba algum conteúdo interessante para uma plataforma de vídeos
+    HomePage
+
+Zustand App State tree
+
+storeLocally(keyIndex)
+retrieveLocally(keyIndex)
+
+// zustand
+useGetSearchTerm() {
+
+}
+
+
+useSetSearchTerm() {
+
+}
+useGetSearchTermsHistory
+
+
+extend to useFetchFromYoutube(type, numPage) {
+
+} returns data 
+
+
+function useSetLocalSearchHistory() {
+// incrementally rehydrate (real-time change compatible)
+// don't remove
+// concat with local search history
+// persist concat
+}
+   
+function useGetLocalSearchHistory()  {
+  // retrieve local search history
+  // return retrieve
+}
+
+// youtube fetch hooks
+fetchDataFromYoutube
+
+
+
+
+// youtube API implementation
+
+   
+ https://www.googleapis.com/youtube/v3/search/?key=AIzaSyBZ--nEkyorU89iKVYDLTbEb8zZTLi7PyM&?type=%22channel&?q=%22goku%20super%20sayajin%22&maxResults=8&part=snippet&page=2
+
+function APP () {
+// https://github.com/pmndrs/zustand
+    const createAppStateStore = createStore() // zustand
+    <Provider createStore={createAppStateStore}>
+      <NavBar />
+      <History />
+      <HomePage /> 
+   </Provider>
+}
+
+
+function HomePage()  { 
+   return ( 
+     <Main>
+       <FeaturedVideos />
+       <MoreFeaturedVideos />       
+     </Main>
+   )
+
+}
+
+
+function FeaturedVideos() {
+  const featuredVideos = ()
+  const queryFilterString = useStore()
+  const videosListQueryObj = useQuery(searchVideos(queryFilterString), [queryFilterString, page])// keep old data
+  
+  render <Thumbnail>
+         <OutletItem />
+         <OutletItem />
+         <OutletItem />
+}
+
+function MoreFeaturedVideos() {
+	const [page, currentPage] = useState(1)
+	const videosListQueryObj = useQuery(searchVideos(queryFilterString), [queryFilterString, page])// keep old data
+	
+	const videosList = useEffect(() => {
+	  
+	}, [videosListObj])
+	
+	
+	<ThumbnailSecondarySmall /> 8 times
+	currentPage > 1 ? <arrow onClick={setCurrentPage(currentPage-1)}> : null
+	{page}
+	<arrow onClick={setCurrentPage(currentPage+1)} />
+}
+
+
+
+thumbnail = Small picture only.
+
+
+Thumbnail
+State - Loading
+State - Error
+State - Default / ok
+error display ann X ThumbnailError
+loading display Spinner ThumbnailLoad
+ok display image ThumbnailDisplay
+
+fixed width and height
+
+ThumbnailHigh = styled(Thumbnail) high width and height
+ThumbnailMedium = styled(thumbnail) medium width height
+Thumbnail = default small width height
+
+
+
+TextHigh
+TextMedium - font-size 14px;
+Text - font-size 11px;
+
+
+
+
+------------------------------------------------------
+
+const OutletItemMedium (thumbUrl, textDisplay, isLoading) = <div side-by-side> ThumbnailMedium + TextMedium </div>
+
+const OutLetItem = <div side-by-side> Thumbnail + Text </div>
+
+
+
+
+
+
+   
+
+Requisitos extras
+
+    useAuth
+    user = null | userObject 
+    user.featuredContentPreferences = last 2 watched + last 1 searched or last 3 searched
+    
+    Permitir cadastro de usuário / login através da API do YouTube + OAuth2
+    
+    
+    
+    useMediaUploader
+    // able to upload videos 
+    // able to limit to only supported formats on youtube API
+    // able to display error when not completed, in a suspended mode
+    // able to display progress in a suspended mode 
+    Permitir upload de vídeo para a API do YouTube
+
+
+
+
+
+--------------------------------
+    
+e2e Test List
+actions 
+
+"Navigate to Home Page"
+//able to find a home page
+
+"Navigate to Channell Page"
+//able to find a channels page
+
+"Search stuff Into API as unauth user"
+//able to search stuff on API public
+
+"Searc0h stuff Into API as authed user"
+//able to search stuff on API using oauth
+//able to do oauth
+
+
+
+
+videos
+  expect to     
+    
+ TODO List
+ 
+ Create react app ok 
+ 
+
+ 
+ 
+ Implement AppStateStore + local persistent localSearchHistory
+ localStorage OK
+ searchHistory OK
+  Implement Home Page Route ok  Implement Channels Page Route ok
+  
+  
+ Implement react-query + fetch functions (fetchVideos | fetchChannels)
+ok   
+ 
+
+ 
+ 
+ 
+
+ 
+ Implement Oauth2
+   store auth_token in  localSessioStorage  - store ready - just grab from app.tsx
+   enable http redirect through hook OK
+
+ Implement storybook and emotion + implement Styled components
+skeletons ok
+
+ Implement Navbar
+ base file ok 
+ 
+ Implement Home Page 
+  Implement Channel Page
+  
+ Implement E2E Tests - cypress
+  
+
+
