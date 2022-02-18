@@ -1,5 +1,4 @@
-import React, { ComponentProps, ReactComponentElement } from "react";
-import { Navigator } from "react-router-dom";
+import React from "react";
 
 const params : any = {
   client_id: "951767523422-9216likuajckrd4i84rdfqt85vv610qq.apps.googleusercontent.com",

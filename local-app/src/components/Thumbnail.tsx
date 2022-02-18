@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { Text } from "."
 
 interface ThumbnailProps {
   imgURL?: string,   
@@ -8,12 +8,12 @@ interface ThumbnailProps {
 
 const Thumbnail = ({ isError, isLoading, imgURL } : ThumbnailProps) : JSX.Element  => {
   if (isError) {
-    return(<div> HAS ERROR FOLK</div>)
+    return(<Text>Erro</Text>)
   }
   if (isLoading) {
-    return(<div> IS LOADING FOLK </div>)
+    return(<Text>Loading</Text>)
   }
-  return (<img style={{maxWidth : '100%'}} src={imgURL} />)
+  return (<img style={{maxWidth : '100%'}} alt="any textalt" src={imgURL} />)
 } 
 
 export {

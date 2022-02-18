@@ -1,5 +1,4 @@
-import React, { useCallback, useState } from "react"
-import { useIsFetching } from "react-query"
+import { useCallback, useState } from "react"
 import styled from '@emotion/styled'
 
 import { pushPersistedSearchHistory, useSessionStore } from "../../storage"
@@ -15,20 +14,21 @@ export function Search() {
   const [ localSearchTerm, setLocalSearchTerm ] = useState<string>('')
   const { setSearchTerm } = useSessionStore()
   
-  const isFetching = useIsFetching()
-
   const dispatchSearchAction = useCallback((evt) => {
     evt.preventDefault()
-    if (isFetching) return
     setLocalSearchTerm(evt.target.value)
     setSearchTerm(evt.target.value)
     return evt
-  }, [localSearchTerm])
+  }, [setSearchTerm])
 
   return (
     <FlexLarge gap="5px" justify="center">
       <InputText onChange={dispatchSearchAction} />
-      <button onClick={() => { pushPersistedSearchHistory(localSearchTerm) }}>Search</button>
+      <button onClick={(evt) => { 
+        evt.preventDefault() 
+        setSearchTerm(localSearchTerm); 
+        pushPersistedSearchHistory(localSearchTerm) 
+      }}>Search</button>
     </FlexLarge>
   )
 }

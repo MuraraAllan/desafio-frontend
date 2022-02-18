@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-import { Text, TextMedium, Thumbnail } from "."
-import { Flex, FlexItem } from "./Flex"
+import { TextMedium, Thumbnail } from "."
+import { Flex } from "./Flex"
 import { TextTitle, TextTitleMedium } from "./Text";
 
 interface OutletItemProps {
@@ -44,7 +44,7 @@ const OutletItemMedium = ({ isError, isLoading, imgURL, title, desc } : OutletIt
           isError={isError} 
           isLoading={isLoading}
         />
-        <Flex direction="column" justify="center" align="center" gap="5px">
+        <Flex direction="column" justify="center" align="center" gap="10px">
           <TextTitleMedium>{title}</TextTitleMedium>
           <TextMedium>{desc}</TextMedium>
         </Flex>

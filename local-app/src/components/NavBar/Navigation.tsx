@@ -2,9 +2,6 @@ import { NavLink } from "react-router-dom";
 
 
 export function Navigation() {
-  let activeStyle = {
-    textDecoration: "underline"
-  };
   const styler = ({isActive = false } : { isActive : boolean }) => ({
     textDecoration: isActive ? 'none' : 'underline',
     color: isActive ? '#808080de': 'inherit',
