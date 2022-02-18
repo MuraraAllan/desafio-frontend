@@ -1,13 +1,16 @@
 import axios from "axios"
 
 export async function fetchChannels(searchTerm: string) {
-    const params = {
-    type: 'video',
-    maxResults: 8,
+  const params : any = {
+    type: 'channel',
+    maxResults: 12,
     q: searchTerm, 
-    key: 'AIzaSyBZ--nEkyorU89iKVYDLTbEb8zZTLi7PyM', // move to env
-    part: 'snippet'
+    key: process.env.REACT_APP_YOUTUBE_API_KEY,
+    part: 'snippet', 
   }
 
   return await axios.get('https://www.googleapis.com/youtube/v3/search/', { params })
 }
+
+
+

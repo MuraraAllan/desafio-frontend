@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 import { pushPersistedSearchHistory, useSessionStore } from "../../storage"
 import { Flex } from "../Flex"
+import { useIsFetching } from "react-query"
 
 const FlexLarge = styled(Flex)`width: 90%;`
 const InputText = styled.input`
@@ -13,10 +14,12 @@ const InputText = styled.input`
 export function Search() {
   const [ localSearchTerm, setLocalSearchTerm ] = useState<string>('')
   const { setSearchTerm } = useSessionStore()
-  
+  const isFetching = useIsFetching()
+
   const dispatchSearchAction = useCallback((evt) => {
     evt.preventDefault()
     setLocalSearchTerm(evt.target.value)
+    if (isFetching) return evt
     setSearchTerm(evt.target.value)
     return evt
   }, [setSearchTerm])

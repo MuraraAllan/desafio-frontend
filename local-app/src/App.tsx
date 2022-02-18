@@ -15,6 +15,7 @@ function App() {
   return (
     <Flex direction='column' gap="20px">
       <SessionStoreProvider createStore={createSessionStore}>
+        {/* react-query is not caching , refetching on route change*/}
         <QueryClientProvider client={queryClient}>
           <NavBar />
           <Routes>

@@ -1,5 +1,5 @@
 
-import create, { GetState, State } from "zustand"
+import create, { GetState } from "zustand"
 import { persist } from "zustand/middleware"
 
 interface PersistedLocalStorageState  {
