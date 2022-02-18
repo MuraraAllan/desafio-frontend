@@ -9,9 +9,6 @@ import { Flex } from './components/Flex';
 const queryClient = new QueryClient()
 
 function App() { 
-  // const isFetching = useIsFetching
-  // useEffect(() => pushSearchHistory("heybuddy"), [])
-  // console.log('hey dear', getSearchHistory())
   return (
     <Flex direction='column' gap="20px">
       <SessionStoreProvider createStore={createSessionStore}>

@@ -20,7 +20,6 @@ const createSessionStore = () => create<SessionState>(
     searchTerm: randomInterestingTerms[randomGenerator],
     setSearchTerm: (searchTerm: string) => {
       const randomGenerator = Math.floor((Math.random() * 1) + (Math.random() * 1) + (Math.random() * 1))
-      console.log('SEARCH IS 0', searchTerm)
       if (searchTerm.length === 0) {
         return set({
           searchTerm: randomInterestingTerms[randomGenerator]
