@@ -58,3 +58,7 @@ O layout da **home** não precisa ser exatamente como o do wireframe. Você pode
 - Componetização do app
 - Uso de linters
 ****
+
+![Untitled Diagram](https://user-images.githubusercontent.com/8569238/154807939-0e511a3a-c7dd-4e44-9cb6-6063184cb78e.jpg)
+
+
