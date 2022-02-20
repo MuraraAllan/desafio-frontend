@@ -15,9 +15,9 @@ export const persistedLocalStorage = create(persist(
   }),
   {
     name: "app-local-storage", // unique name
-    partialize: (state) => ({ searchHistory: state.searchHistory })
+    partialize: ({ searchHistory }) => ({ searchHistory })
   }
 ))
 
-export const pushPersistedSearchHistory = (searchTerm: string) => persistedLocalStorage.getState().pushSearchHistory(searchTerm)
+export const pushPersistedSearchHistory = (searchTerm: string) => searchTerm.length > 0 ? persistedLocalStorage.getState().pushSearchHistory(searchTerm) : null
 export const getPersistedSearchHistory = () => persistedLocalStorage.getState().searchHistory

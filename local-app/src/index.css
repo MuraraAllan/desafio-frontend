@@ -5,7 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  max-width: 1500px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
