@@ -1,35 +1,29 @@
-import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { HomePage, ChannelsPage } from './pages'
-import { createSessionStore, getPersistedSearchHistory, pushPersistedSearchHistory, SessionStoreProvider } from './storage';
-import { NavBar } from './components/NavBar';
+import { createSessionStore, SessionStoreProvider } from './storage';
+import { NavBar } from './components/NavBar/NavBar';
+import { Flex } from './components/Flex';
 
 const queryClient = new QueryClient()
 
 function App() { 
-  useEffect(() => {
-    pushPersistedSearchHistory('lfasdlfsalfdsa')
-    console.log('púsh search', getPersistedSearchHistory())
-  }, [])
-  
   // const isFetching = useIsFetching
   // useEffect(() => pushSearchHistory("heybuddy"), [])
   // console.log('hey dear', getSearchHistory())
-  
   return (
-    <div className="App">
+    <Flex direction='column' gap="20px">
       <SessionStoreProvider createStore={createSessionStore}>
         <QueryClientProvider client={queryClient}>
           <NavBar />
           <Routes>
-              <Route index element={<HomePage />} />
-              <Route path="/channels" element={<ChannelsPage />} />
+            <Route path="/channels" element={<ChannelsPage />} />
+            <Route index element={<HomePage />} />
           </Routes>
         </QueryClientProvider>
       </SessionStoreProvider>
-    </div>
+    </Flex>
   );
 }
 
